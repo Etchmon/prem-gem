@@ -10,7 +10,9 @@ export default async function fantasyData(req: NextApiRequest, res: NextApiRespo
     const response = await fetch('https://fantasy.premierleague.com/api/bootstrap-static/');
     const data = await response.json();
     const playerList = data.elements;
-
+    const playerNames = playerList.forEach((element: any) => {
+      console.log(element.first_name, element.second_name);
+    });
     // Pull Player data out from json
     // Use players name to scrape transfermarkt data
     // Create new model for Player Schema
