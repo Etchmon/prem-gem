@@ -1,4 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: 'postgresql://etchmon'
+})
 
 /**
  * @param {NextApiRequest} req 
