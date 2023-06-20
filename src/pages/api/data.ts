@@ -6,13 +6,10 @@ const pool = new Pool({
   connectionString: process.env.DB_CONNECTION_STRING
 })
 
-console.log(pool.connect());
-
 /**
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
  */
-
 
 export default async function fantasyData(
   req: NextApiRequest,
