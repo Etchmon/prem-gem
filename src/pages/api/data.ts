@@ -1,9 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-// import { Pool } from 'pg';
+import { Pool } from 'pg';
+import 'dotenv/config';
 
-// const pool = new Pool({
-//   connectionString: 'postgresql://etchmon'
-// })
+const pool = new Pool({
+  connectionString: process.env.DB_CONNECTION_STRING
+})
 
 /**
  * @param {NextApiRequest} req
@@ -64,14 +65,14 @@ export default async function fantasyData(
           console.error('Error scraping data:', error)
         }
 
-        // const client = await pool.connect();
-        // try {
-        //   const query = 'INSERT INTO player (first_name, second_name, ...) VALUES ($1, $2)';
-        //   const values = [player.first_name, player.second_name];
-        // } catch (error) {
-        //   console.error('Error inserting data:', error);
+        const client = await pool.connect();
+        try {
+          const query = 'INSERT INTO player (first_name, second_name, ...) VALUES ($1, $2)';
+          const values = [player.first_name, player.second_name];
+        } catch (error) {
+          console.error('Error inserting data:', error);
 
-        // }
+        }
       }),
     )
 
