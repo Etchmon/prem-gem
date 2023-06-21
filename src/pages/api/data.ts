@@ -1,11 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { Pool } from 'pg';
-import 'dotenv/config';
-
-const pool = new Pool({
-  connectionString: process.env.DB_CONNECTION_STRING
-})
-
+import pool from './db'
 /**
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
