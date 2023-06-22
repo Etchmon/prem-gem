@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import pool from './db'
+import pool from '../../../graphql/db'
 /**
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
