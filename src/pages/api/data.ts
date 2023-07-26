@@ -21,7 +21,7 @@ export default async function fantasyData(
     const data = await response.json()
     const playerList = data.elements
 
-    // Inster player data into the PostgreSQL database
+    // Insert player data into the PostgreSQL database
     await Promise.all(
       playerList.map(async (player: any) => {
         const team = data.teams[player.team].name
@@ -56,13 +56,7 @@ export default async function fantasyData(
           player.goals_conceded_per_90,
           player.starts_per_90,
           player.clean_sheets_per_90,
-        )
-
-        // Web scraping logic
-        try {
-        } catch (error) {
-          console.error('Error scraping data:', error)
-        }
+        );
 
         // const client = await pool.connect();
         // try {
